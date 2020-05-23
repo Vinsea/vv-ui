@@ -1,29 +1,15 @@
-# vv-ui
+# VV UI
 
-## Project setup
-```
-npm install
-```
+VV UI is a Component Library for Vue2.*.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Documentation
 
-### Compiles and minifies for production
-```
-npm run build
-```
+> TODO
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Contributing
 
-### Lints and fixes files
-```
-npm run lint
-```
+Please see [contributing guide](./.github/CONTRIBUTING.md).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## License
+
+[MIT](./LICENSE)
