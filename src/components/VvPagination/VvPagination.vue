@@ -1,31 +1,36 @@
 <template>
   <div class="vv-pagination">
     <span> 共 {{total}} 条 </span>
-    <span class="vv-pager is-prev" :class="{ 'is-disabled': value === 1 }"
-          @click="handleClick('prev')">上一页</span>
-    <span class="vv-pager" :class="{ 'is-active': value === 1 }"
-          @click="handleClick(1)">1</span>
-    <span class="vv-pager is-ellipsis" v-if="pages.length > 0 && 2 < pages[0]">...</span>
 
-    <span
+    <div class="vv-pager is-prev" :class="{ 'is-disabled': isFirst }"
+          @click="handleClick('prev')"><vv-ripple center :disabled="isFirst">上一页</vv-ripple></div>
+
+    <div class="vv-pager" :class="{ 'is-active': isFirst }"
+          @click="handleClick(1)"> <vv-ripple center>1</vv-ripple></div>
+    <div class="vv-pager is-ellipsis" v-if="pages.length > 0 && 2 < pages[0]">...</div>
+
+    <div
       class="vv-pager"
       v-for="pager in pages"
       :key="pager"
       :class="{ 'is-active': pager === value }"
       @click="handleClick(pager)"
-    >{{ pager }}</span>
+    ><vv-ripple center>{{ pager }}</vv-ripple></div>
 
-    <span class="vv-pager is-ellipsis" v-if="pages.length > 0 && pageCount > pages[pages.length-1] + 1">...</span>
-    <span class="vv-pager" :class="{ 'is-active': value === pageCount }"
-          @click="handleClick(pageCount)">{{ pageCount }}</span>
-    <span class="vv-pager is-next" :class="{ 'is-disabled': value === pageCount }"
-          @click="handleClick('next')">下一页</span>
+    <div class="vv-pager is-ellipsis" v-if="pages.length > 0 && pageCount > pages[pages.length-1] + 1">...</div>
+    <div class="vv-pager" :class="{ 'is-active': isLast }"
+          @click="handleClick(pageCount)">{{ pageCount }}</div>
+    <div class="vv-pager is-next" :class="{ 'is-disabled': isLast }"
+         @click="handleClick('next')"><vv-ripple center :disabled="isLast">下一页</vv-ripple></div>
   </div>
 </template>
 
 <script>
+import VvRipple from '@vinsea/vv-ui/src/components/VvRipple';
+
 export default {
   name: 'vv-pagination',
+  components: {VvRipple},
   props: {
     total: {
       type: Number,
@@ -60,6 +65,14 @@ export default {
         pagesInner.push(i);
       }
       return pagesInner;
+    },
+
+    isFirst() {
+      return this.value === 1;
+    },
+
+    isLast() {
+      return this.value === this.pageCount;
     }
   },
   methods: {
