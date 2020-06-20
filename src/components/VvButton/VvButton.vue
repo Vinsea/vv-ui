@@ -1,5 +1,9 @@
 <template>
-  <button :class="['vv-button', btnClasses]" :disabled="disabled" @click="handleClick">
+  <button
+    :class="['vv-button', btnClasses]"
+    :disabled="disabled"
+    @click="handleClick"
+  >
     <vv-ripple :disabled="disabled">
       <div class="vv-button-content">
         <slot></slot>
@@ -13,7 +17,7 @@ import VvRipple from '@vinsea/vv-ui/src/components/VvRipple';
 
 export default {
   name: 'vv-button',
-  components: {VvRipple},
+  components: { VvRipple },
   props: {
     ripple: {
       type: Boolean,
@@ -33,10 +37,10 @@ export default {
           'vv-centered': this.center,
           'is-disabled': this.disabled
         }
-      ]
+      ];
     }
   },
-  methods:{
+  methods: {
     handleClick(evt) {
       this.$emit('click', evt);
     }

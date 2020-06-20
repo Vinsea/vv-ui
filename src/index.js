@@ -1,4 +1,5 @@
-import * as components from "./components";
+import * as components from './components';
+import '../themes/index.less';
 
 const install = Vue => {
   Object.values(components).forEach(component => {
@@ -6,11 +7,11 @@ const install = Vue => {
   });
 };
 
-if (typeof window !== "undefined" && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
 export default {
-  version: "2.12.0",
+  version: '0.2.0',
   install
 };

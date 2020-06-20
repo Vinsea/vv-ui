@@ -1,3 +1,4 @@
-import VvButton from "./VvButton";
+import VvButton from './VvButton';
+import VvPagination from './VvPagination';
 
-export { VvButton };
+export {VvButton, VvPagination};

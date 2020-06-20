@@ -95,6 +95,7 @@
     <button @click="handleClick">原生</button>
     <vv-button @click="handleClick">默认</vv-button>
     <vv-button disabled>禁用</vv-button>
+    <vv-pagination :total="10" v-model="currPage"></vv-pagination>
   </div>
 </template>
 
@@ -103,6 +104,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      currPage: 3
+    }
   },
   methods: {
     handleClick(e) {

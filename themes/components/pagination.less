@@ -1,0 +1,48 @@
+@import "../common/var";
+
+.vv-pagination {
+  white-space: nowrap;
+  padding: 5px;
+}
+
+.vv-pager {
+  display: inline-block;
+  line-height: @--height-pager;
+  min-width: @--height-pager+5;
+  padding: 0 5px;
+  border: 1px solid @--color-border;
+  border-radius: 2px;
+  margin-left: -1px;
+
+  font-weight: 600;
+  color: fade(@--color-text, 80%);
+  font-size: @--font-size-base;
+
+  user-select: none;
+  cursor: pointer;
+  transition: color @--transition-duration, border @--transition-duration, background-color @--transition-duration;
+
+  &:hover {
+    color: @--color-primary;
+  }
+
+  &.is-prev,
+  &.is-next {
+    padding: 0 10px;
+    margin: 0 5px;
+
+    &:not(.is-disabled):hover {
+      border-color: @--color-primary;
+    }
+  }
+
+  &.is-active {
+    color: #fff;
+    background-color: @--color-primary;
+  }
+
+  &.is-disabled {
+    color: fade(@--color-text, 30%);
+    cursor: not-allowed;
+  }
+}
