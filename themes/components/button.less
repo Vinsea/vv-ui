@@ -1,0 +1,51 @@
+.vv-button {
+  min-width: 80px;
+  height: 36px;
+  margin: 5px;
+  user-select: none;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  border: 0;
+  transition: .4s cubic-bezier(.4, 0, .2, 1);
+  font-family: inherit;
+  line-height: normal;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: .4s cubic-bezier(.4, 0, .2, 1);
+    will-change: background-color, opacity;
+    content: " ";
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+
+    &.vv-focused::before,
+    &:active::before,
+    &:hover::before {
+      background-color: currentColor;
+      opacity: .12;
+    }
+  }
+
+  &.is-text {
+    background: transparent;
+  }
+
+}
