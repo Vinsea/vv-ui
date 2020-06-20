@@ -1,3 +1,3 @@
-import VvRipple from "./VvRipple";
+import VvRipple from './VvRipple';
 
 export default VvRipple;

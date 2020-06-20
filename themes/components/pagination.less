@@ -3,6 +3,10 @@
 .vv-pagination {
   white-space: nowrap;
   padding: 5px;
+  font-weight: 600;
+  color: fade(@--color-text, 80%);
+  font-size: @--font-size-base;
+  text-align: center;
 }
 
 .vv-pager {
@@ -14,18 +18,16 @@
   border-radius: 2px;
   margin-left: -1px;
 
-  font-weight: 600;
-  color: fade(@--color-text, 80%);
-  font-size: @--font-size-base;
-
   user-select: none;
   cursor: pointer;
-  transition: color @--transition-duration, border @--transition-duration, background-color @--transition-duration;
+  transition: color @--transition-duration, border @--transition-duration;
 
-  &:hover {
+  // 省略号占位元素不要 hover
+  &:not(.is-ellipsis):hover {
     color: @--color-primary;
   }
 
+  // 上/下一页，TODO 后续改为图标
   &.is-prev,
   &.is-next {
     padding: 0 10px;
@@ -36,13 +38,24 @@
     }
   }
 
+  // 当前激活的页码
   &.is-active {
     color: #fff;
     background-color: @--color-primary;
+
+    &:hover {
+      color: #fff;
+    }
   }
 
+  // 禁止点击
   &.is-disabled {
     color: fade(@--color-text, 30%);
     cursor: not-allowed;
+  }
+
+  // 如果页数过多，显示省略号占位
+  &.is-ellipsis {
+    cursor: default;
   }
 }

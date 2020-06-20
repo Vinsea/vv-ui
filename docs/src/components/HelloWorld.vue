@@ -95,7 +95,7 @@
     <button @click="handleClick">原生</button>
     <vv-button @click="handleClick">默认</vv-button>
     <vv-button disabled>禁用</vv-button>
-    <vv-pagination :total="10" v-model="currPage"></vv-pagination>
+    <vv-pagination :total="53" v-model="currPage"></vv-pagination>
   </div>
 </template>
 

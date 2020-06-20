@@ -1,3 +1,3 @@
-import VvPagination from "./VvPagination";
+import VvPagination from './VvPagination';
 
 export default VvPagination;
