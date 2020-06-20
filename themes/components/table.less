@@ -1,0 +1,64 @@
+@import "../common/var";
+
+@--border: 1px solid @--color-border;
+@--cell-padding: 5px;
+
+.vv-table {
+
+}
+
+.vv-table-main {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.vv-table-head {
+  padding: 0 @--cell-padding;
+  color: @--color-text;
+  position: relative;
+  user-select: none;
+  text-align: left;
+}
+
+.vv-table-head-content {
+  padding: @--cell-padding 0;
+  display: inline-block;
+  position: relative;
+  line-height: @--height-th;
+  font-size: @--font-size-base;
+  vertical-align: middle;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vv-table-td {
+  padding: @--cell-padding;
+  font-size: @--font-size-base;
+  border-top: @--border;
+  color: @--color-text-normal;
+  text-align: left;
+  transition: background-color @--transition-duration;
+}
+
+.vv-table-td-content {
+  line-height: @--height-td;
+
+  .vv-button.is-text {
+    color: @--color-primary;
+  }
+}
+
+.vv-table-td-expand {
+  text-align: left;
+}
+
+.vv-table-tr:hover {
+  .vv-table-td {
+    background-color: @--color-border;
+  }
+}
