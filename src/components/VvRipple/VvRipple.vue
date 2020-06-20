@@ -1,12 +1,12 @@
 <template>
-  <span class="vv-ripple"
+  <div class="vv-ripple"
         @touchstart.passive="touchStartCheck($event)"
         @touchmove.passive="touchMoveCheck($event)"
         @mousedown.passive="startRipple($event)">
     <slot></slot>
     <vv-wave v-for="item in rippleData" :key="item.uuid" :class="['vv-ripple-wave', waveClasses]"
              :style="item.waveStyles" @on-end="clearWave(item.uuid)"></vv-wave>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -63,7 +63,7 @@ export default {
         width: size + 'px',
         height: size + 'px'
       }
-      console.log('waveStyles', waveStyles);
+      // console.log('waveStyles', waveStyles);
       this.rippleData.push({
         waveStyles,
         uuid: uuid()

@@ -1,10 +1,22 @@
+@import "../common/var";
+
+.btnMix(@--param-color){
+  color: #fff;
+  background-color: @--param-color;
+
+  &.is-disabled {
+    background-color: fade(@--param-color, 40%);
+  }
+}
+
 .vv-button {
+  color: @--color-text;
   min-width: 80px;
-  height: 36px;
+  height: @--height-btn;
   margin: 5px;
   user-select: none;
-  border-radius: 2px;
-  font-size: 14px;
+  border-radius: 4px;
+  font-size: @--font-size-base;
   font-weight: 500;
 
   padding: 0;
@@ -13,14 +25,16 @@
   overflow: hidden;
   outline: none;
   border: 0;
-  transition: .4s cubic-bezier(.4, 0, .2, 1);
+  transition: @--transition-duration ease;
   font-family: inherit;
   line-height: normal;
   text-decoration: none;
   vertical-align: top;
   white-space: nowrap;
 
+  // 鼠标悬浮时需要用，直接取当前color，而不是通过 vv-button 的 background-color 来展示
   &::before {
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -28,24 +42,36 @@
     left: 0;
     z-index: 1;
     opacity: 0;
-    transition: .4s cubic-bezier(.4, 0, .2, 1);
+    transition: @--transition-duration ease;
     will-change: background-color, opacity;
     content: " ";
   }
 
-  &:not([disabled]) {
+  &:not(.is-disabled) {
     cursor: pointer;
 
     &.vv-focused::before,
     &:active::before,
     &:hover::before {
       background-color: currentColor;
-      opacity: .12;
+      opacity: .15;
     }
   }
 
   &.is-text {
-    background: transparent;
+    background-color: transparent;
+  }
+
+  &.is-default {
+    .btnMix(@--color-primary);
+  }
+
+  &.is-success {
+    .btnMix(@--color-success);
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
   }
 
 }

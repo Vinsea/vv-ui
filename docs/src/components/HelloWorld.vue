@@ -92,7 +92,9 @@
         >
       </li>
     </ul>
-    <vv-button @click="handleClick">安达市多</vv-button>
+    <button @click="handleClick">原生</button>
+    <vv-button @click="handleClick">默认</vv-button>
+    <vv-button disabled>禁用</vv-button>
   </div>
 </template>
 
