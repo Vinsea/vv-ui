@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "A Component Library for Vue2.*.",
   "license": "MIT",
+  "main": "dist/vv-ui.common.js",
   "keywords": [
     "vv",
     "vvui",
@@ -26,6 +27,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name vv-ui ./src/index.js",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "dependencies": {
