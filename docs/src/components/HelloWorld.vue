@@ -108,6 +108,10 @@
       <vv-button disabled>禁用</vv-button>
     </vv-row>
 
+    <div style="width: 500px">
+      <vv-input required label="姓名" v-model="tableData[0].name"></vv-input>
+    </div>
+
     <vv-pagination :total="53" v-model="currPage"></vv-pagination>
     <vv-table :table-data="tableData">
       <vv-table-item title="#" type="index" width="50" align="center"></vv-table-item>
@@ -123,6 +127,7 @@
         <pre>{{data}}</pre>
       </template>
     </vv-table>
+
   </div>
 </template>
 

@@ -61,7 +61,6 @@ export default {
         for (const slot of this.$slots.default) {
           const option = slot.componentOptions;
           if (option && option.tag === 'vv-table-item') {
-            console.log(slot.componentOptions)
             columns.push(slot.componentOptions.propsData);
           }
         }
@@ -71,7 +70,7 @@ export default {
   },
   mounted() {
     this.initColumns();
-    console.log('$slots', this.$slots.default)
+    // console.log('$slots', this.$slots.default)
   }
 }
 </script>
