@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import VvRipple from '@vinsea/vv-ui/src/components/VvRipple';
+import VvRipple from '@vinsea/vv-ui/src/components/ripple';
 
 export default {
-  name: 'vv-pagination',
+  name: 'VvPagination',
   components: {VvRipple},
   props: {
     total: {

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'vv-wave',
+  name: 'VvWave',
   data() {
     return {
       animating: false

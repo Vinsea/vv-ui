@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'vv-table-item',
+  name: 'VvTableItem',
   props: {
     type: String,
     prop: String,

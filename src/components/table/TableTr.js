@@ -1,7 +1,7 @@
-import VvTableTd from './VvTableTd';
+import TableTd from './TableTd';
 
 export default {
-  name: 'vv-table-tr',
+  name: 'VvTableTr',
   props: {
     dataTr: [Object, Array],
     index: Number
@@ -24,7 +24,7 @@ export default {
           if (td.data.scopedSlots) {
             param.scopedSlots = td.data.scopedSlots;
           }
-          tds.push(h(VvTableTd, param));
+          tds.push(h(TableTd, param));
         }
       }
     } else if (!this.$parent.$scopedSlots.default && this.$parent.columns) {
@@ -32,7 +32,7 @@ export default {
         let param = JSON.parse(JSON.stringify({props: td}));
         param.props.data = this.dataTr;
         param.props.index = this.index;
-        tds.push(h(VvTableTd, param));
+        tds.push(h(TableTd, param));
       }
     }
     // console.log('tds', tds);

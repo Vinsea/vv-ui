@@ -19,10 +19,10 @@
 <script>
 import { uuid } from '@vinsea/vv-ui/src/utils/util';
 
-import VvWave from './VvWave';
+import VvWave from './Wave';
 
 export default {
-  name: 'vv-ripple',
+  name: 'VvRipple',
   components: {
     VvWave
   },

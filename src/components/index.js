@@ -1,6 +1,6 @@
-import VvButton from './VvButton';
-import VvPagination from './VvPagination';
-import VvTable from './VvTable';
-import VvTableItem from './VvTable/VvTableItem';
+import Button from './button';
+import Pagination from './pagination';
+import Table from './table';
+import TableItem from './table/TableItem';
 
-export {VvButton, VvPagination, VvTable, VvTableItem};
+export {Button, Pagination, Table, TableItem};

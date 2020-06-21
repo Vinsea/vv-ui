@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'vv-table-td',
+  name: 'VvTableTd',
   props: {
     index: Number,
     prop: String,

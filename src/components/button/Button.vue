@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import VvRipple from '@vinsea/vv-ui/src/components/VvRipple';
+import VvRipple from '@vinsea/vv-ui/src/components/ripple';
 
 export default {
-  name: 'vv-button',
+  name: 'VvButton',
   components: { VvRipple },
   props: {
     ripple: {

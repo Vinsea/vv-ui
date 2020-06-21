@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import VvTableTr from './VvTableTr';
+import VvTableTr from './TableTr';
 
 export default {
-  name: 'vv-table',
+  name: 'VvTable',
   components: {
     VvTableTr
   },
