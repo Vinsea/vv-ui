@@ -6,6 +6,8 @@ const resolve = dir => {
 };
 
 module.exports = {
+  productionSourceMap:false,
+
   pages: {
     index: {
       entry: 'docs/src/main.js',
