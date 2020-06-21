@@ -1,12 +1,16 @@
 <template>
-  <div class="vv-pagination">
-    <span> 共 {{total}} 条 </span>
+  <vv-row class="vv-pagination" flex justify="center">
+    <div> 共 {{total}} 条 </div>
 
     <div class="vv-pager is-prev" :class="{ 'is-disabled': isFirst }"
-          @click="handleClick('prev')"><vv-ripple center :disabled="isFirst">上一页</vv-ripple></div>
+         @click="handleClick('prev')">
+      <vv-ripple center :disabled="isFirst">上一页</vv-ripple>
+    </div>
 
     <div class="vv-pager" :class="{ 'is-active': isFirst }"
-          @click="handleClick(1)"> <vv-ripple center>1</vv-ripple></div>
+         @click="handleClick(1)">
+      <vv-ripple center>1</vv-ripple>
+    </div>
     <div class="vv-pager is-ellipsis" v-if="pages.length > 0 && 2 < pages[0]">...</div>
 
     <div
@@ -15,22 +19,28 @@
       :key="pager"
       :class="{ 'is-active': pager === value }"
       @click="handleClick(pager)"
-    ><vv-ripple center>{{ pager }}</vv-ripple></div>
+    >
+      <vv-ripple center>{{ pager }}</vv-ripple>
+    </div>
 
     <div class="vv-pager is-ellipsis" v-if="pages.length > 0 && pageCount > pages[pages.length-1] + 1">...</div>
     <div class="vv-pager" :class="{ 'is-active': isLast }"
-          @click="handleClick(pageCount)">{{ pageCount }}</div>
+         @click="handleClick(pageCount)">{{ pageCount }}
+    </div>
     <div class="vv-pager is-next" :class="{ 'is-disabled': isLast }"
-         @click="handleClick('next')"><vv-ripple center :disabled="isLast">下一页</vv-ripple></div>
-  </div>
+         @click="handleClick('next')">
+      <vv-ripple center :disabled="isLast">下一页</vv-ripple>
+    </div>
+  </vv-row>
 </template>
 
 <script>
 import VvRipple from '@vinsea/vv-ui/src/components/ripple';
+import VvRow from '@vinsea/vv-ui/src/components/row';
 
 export default {
   name: 'VvPagination',
-  components: {VvRipple},
+  components: {VvRipple, VvRow},
   props: {
     total: {
       type: Number,
@@ -52,7 +62,7 @@ export default {
 
     pages() {
       if (this.pageCount < 3) {
-        return []
+        return [];
       }
 
       let start = Math.max(2, this.value - Math.floor(this.size / 2));

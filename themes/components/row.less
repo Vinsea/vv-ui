@@ -1,0 +1,46 @@
+@import "../common/var";
+@import "../mixins/util";
+
+.vv-row {
+  position: relative;
+  box-sizing: border-box;
+
+  .clearFix();
+
+  &.vv-row-flex {
+    display: flex;
+  }
+
+  &.is-justify-start {
+    justify-content: flex-start;
+  }
+
+  &.is-justify-end {
+    justify-content: flex-end;
+  }
+
+  &.is-justify-center {
+    justify-content: center;
+  }
+
+  &.is-justify-between {
+    justify-content: space-between;
+  }
+
+  &.is-justify-around {
+    justify-content: space-around;
+  }
+
+  &.is-align-center {
+    align-items: center;
+  }
+
+  &.is-align-top {
+    align-items: flex-start;
+  }
+
+  &.is-align-bottom {
+    align-items: flex-end;
+  }
+
+}

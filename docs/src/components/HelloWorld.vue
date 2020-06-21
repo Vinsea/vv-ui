@@ -92,9 +92,22 @@
         >
       </li>
     </ul>
-    <button @click="handleClick">原生</button>
-    <vv-button @click="handleClick">默认</vv-button>
-    <vv-button disabled>禁用</vv-button>
+    <div>
+      <vv-row>
+        <vv-col :span="8">
+          <button @click="handleClick">原生</button>
+        </vv-col>
+        <vv-col :span="12" :offset="4">
+          <vv-button @click="handleClick">默认</vv-button>
+        </vv-col>
+      </vv-row>
+    </div>
+
+
+    <vv-row justify="center">
+      <vv-button disabled>禁用</vv-button>
+    </vv-row>
+
     <vv-pagination :total="53" v-model="currPage"></vv-pagination>
     <vv-table :table-data="tableData">
       <vv-table-item title="#" type="index" width="50" align="center"></vv-table-item>
@@ -142,16 +155,16 @@ export default {
           id: 7, name: '测试7', age: 17, address: '上海', _expand: false
         }
       ]
-    }
+    };
   },
   methods: {
     handleClick(e) {
-      console.log('click', e)
+      console.log('click', e);
     },
 
     open(data) {
       this.$set(data, '_expand', !data._expand);
-      console.log(data)
+      console.log(data);
     }
   }
 };

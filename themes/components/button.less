@@ -30,6 +30,7 @@
   text-decoration: none;
   vertical-align: top;
   white-space: nowrap;
+  box-sizing: border-box;
 
   // 鼠标悬浮时需要用，直接取当前color，而不是通过 vv-button 的 background-color 来展示
   &::before {
@@ -70,6 +71,13 @@
 
   &.is-disabled {
     cursor: not-allowed;
+  }
+
+  .vv-ripple {
+    padding: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 }

@@ -1,0 +1,35 @@
+@import "../common/var";
+
+.vv-col {
+  float: left;
+  box-sizing: border-box;
+}
+
+// 生成网格每列宽度值
+.generate-columns(24);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  @result: (@i * 100% / @n);
+
+  .vv-col-span-@{i} {
+    width: @result;
+  }
+
+  .vv-col-offset-@{i} {
+    margin-left: @result;
+  }
+
+  .generate-columns(@n, (@i + 1));
+}
+
+.vv-col-span-0 {
+  width: 0;
+}
+
+.vv-col-span-24 {
+  flex: 1;
+}
+
+.vv-col-offset-0 {
+  margin-left: 0;
+}
