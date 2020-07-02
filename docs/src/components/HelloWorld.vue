@@ -112,7 +112,7 @@
       <vv-input required label="姓名" v-model="tableData[0].name"></vv-input>
     </div>
 
-    <vv-pagination :total="53" v-model="currPage"></vv-pagination>
+    <vv-pagination :total="1" v-model="currPage"></vv-pagination>
     <vv-table :table-data="tableData">
       <vv-table-item title="#" type="index" width="50" align="center"></vv-table-item>
       <vv-table-item title="姓名" prop="name"></vv-table-item>
@@ -139,7 +139,7 @@ export default {
   },
   data() {
     return {
-      currPage: 3,
+      currPage: 1,
       tableData: [
         {
           id: 2, name: '测试5', age: 12, address: '上海', _expand: false

@@ -6,7 +6,7 @@ const resolve = dir => {
 };
 
 module.exports = {
-  productionSourceMap:false,
+  productionSourceMap: false,
 
   pages: {
     index: {

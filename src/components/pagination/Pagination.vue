@@ -1,10 +1,10 @@
 <template>
   <vv-row class="vv-pagination" flex justify="center">
-    <div> 共 {{total}} 条 </div>
+    <div> 共 {{total}} 条</div>
 
     <div class="vv-pager is-prev" :class="{ 'is-disabled': isFirst }"
          @click="handleClick('prev')">
-      <vv-ripple center :disabled="isFirst">上一页</vv-ripple>
+      <vv-ripple :disabled="isFirst">上一页</vv-ripple>
     </div>
 
     <div class="vv-pager" :class="{ 'is-active': isFirst }"
@@ -18,18 +18,18 @@
       v-for="pager in pages"
       :key="pager"
       :class="{ 'is-active': pager === value }"
-      @click="handleClick(pager)"
-    >
+      @click="handleClick(pager)">
       <vv-ripple center>{{ pager }}</vv-ripple>
     </div>
 
     <div class="vv-pager is-ellipsis" v-if="pages.length > 0 && pageCount > pages[pages.length-1] + 1">...</div>
-    <div class="vv-pager" :class="{ 'is-active': isLast }"
-         @click="handleClick(pageCount)">{{ pageCount }}
+    <div class="vv-pager" :class="{ 'is-active': isLast }" v-if="total > 1"
+         @click="handleClick(pageCount)">
+      <vv-ripple center>{{ pageCount }}</vv-ripple>
     </div>
     <div class="vv-pager is-next" :class="{ 'is-disabled': isLast }"
          @click="handleClick('next')">
-      <vv-ripple center :disabled="isLast">下一页</vv-ripple>
+      <vv-ripple :disabled="isLast">下一页</vv-ripple>
     </div>
   </vv-row>
 </template>
@@ -88,12 +88,13 @@ export default {
   methods: {
     handleClick(data) {
       if (this.value === data) return;
+
       let page = 1;
       if (data === 'prev') {
         if (this.value === 1) return;
         page = this.value - 1;
       } else if (data === 'next') {
-        if (this.value === this.total) return;
+        if (this.value === this.pageCount) return;
         page = this.value + 1;
       } else {
         page = data;
