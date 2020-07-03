@@ -1,0 +1,99 @@
+@import "../common/var";
+
+.borderMixin() {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition-duration: @--transition-duration;
+  transition-timing-function: @--transition-timing-func;
+}
+
+.labelMixin() {
+  font-size: @--font-size-base;
+  top: 5px;
+}
+
+.vv-form-item-label {
+  color: fade(@--color-text-normal, 80%);
+  position: absolute;
+  top: @--height-form-item - 7;
+  line-height: 1;
+  pointer-events: none;
+  transition-property: top, font-size, color;
+  transition-duration: @--transition-duration;
+  transition-timing-function: @--transition-timing-func;
+}
+
+.vv-form-item {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 10px;
+
+  &::before {
+    .borderMixin();
+    background-color: @--color-primary;
+    height: 2px;
+    z-index: 2;
+    opacity: 0;
+    transform: scaleX(.05);
+    transition-property: border, opacity, transform;
+    will-change: border, opacity, transform;
+  }
+
+  &::after {
+    .borderMixin();
+    height: 1px;
+    z-index: 1;
+    background-color: fade(@--color-text-normal, 80%);
+    transition-property: border, opacity;
+    will-change: border, opacity;
+  }
+
+  &.has-value {
+    .vv-form-item-label {
+      .labelMixin()
+    }
+  }
+
+  &.is-focused {
+    &::before {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .vv-form-item-label {
+      .labelMixin();
+      color: @--color-primary;
+    }
+  }
+}
+
+// textarea 默认样式
+.is-textarea-default {
+
+  &::before, &::after {
+    .borderMixin();
+    top: 0;
+    background-color: transparent;
+    height: auto;
+    pointer-events: none;
+  }
+
+  &::before {
+    opacity: 0;
+    transform: scaleX(1);
+    border: 2px solid @--color-primary;
+  }
+
+  &::after {
+    border: 1px solid fade(@--color-text-normal, 80%);
+  }
+
+  .vv-form-item-label {
+    top: @--textarea-padding*2;
+    left: @--textarea-padding;
+  }
+
+}

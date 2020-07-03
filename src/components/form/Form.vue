@@ -1,19 +1,16 @@
 <template>
-  <input class="vv-input" :id="id"
-         v-model="localValue"
-         @focus="onFocus"
-         @blur="onBlur"
-         :aria-label="formItem.label">
+  <form class="vv-form">
+
+  </form>
 </template>
 
 <script>
 import {uuid} from '@vinsea/vv-ui/src/utils/util';
 
 export default {
-  name: 'VvInput',
-  inject: ['formItem'],
+  name: 'VvForm',
   props: {
-    value: [String, Number, Array],
+    value: String,
     id: {
       type: String,
       default: () => 'vvInput_' + uuid()
@@ -22,12 +19,14 @@ export default {
       type: String,
       default: 'text'
     },
+    label: String,
     maxlength: Number,
     required: Boolean
   },
   data() {
     return {
-      localValue: this.value
+      localValue: this.value,
+      focused: false
     };
   },
   computed: {
@@ -44,27 +43,18 @@ export default {
     //   }
     // },
   },
-  created() {
-    this.setValue(this.value);
-    this.formItem.id = this.id;
-    this.formItem.name = this.$options.name;
-  },
   methods: {
     onFocus() {
-      this.formItem.focused = true;
+      this.focused = true;
     },
     onBlur() {
-      this.formItem.focused = false;
-    },
-    setValue(val) {
-      this.formItem.value = val;
+      this.focused = false;
     }
   },
   watch: {
     localValue(val) {
-      this.setValue(val);
       this.$emit('input', val);
-    }
+    },
     // value(val) {
     //   this.localValue = val;
     // }

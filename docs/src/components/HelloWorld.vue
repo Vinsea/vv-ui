@@ -109,7 +109,18 @@
     </vv-row>
 
     <div style="width: 500px">
-      <vv-input required label="姓名" v-model="tableData[0].name"></vv-input>
+      <vv-form-item required label="姓名">
+        <vv-input v-model="tableData[0].name"></vv-input>
+      </vv-form-item>
+      <vv-form-item required label="备注">
+        <vv-textarea v-model="tableData[0].address"></vv-textarea>
+      </vv-form-item>
+      <vv-form-item required label="年龄">
+        <vv-input v-model="tableData[0].age"></vv-input>
+      </vv-form-item>
+      <vv-form-item required label="备注 自动增高">
+        <vv-textarea autosize v-model="tableData[0].address"></vv-textarea>
+      </vv-form-item>
     </div>
 
     <vv-pagination :total="1" v-model="currPage"></vv-pagination>

@@ -1,0 +1,16 @@
+@import "../common/var";
+@import "../mixins/form";
+
+.vv-textarea {
+  .inputInit();
+  min-height: @--font-size-m*1.5*4;
+  resize: vertical;
+  line-height: 1.5;
+  padding: @--textarea-padding/2 @--textarea-padding;
+
+  &.is-autosize {
+    padding: (@--textarea-padding - 2) 0;
+    min-height: auto;
+    height: @--height-form-item;
+  }
+}

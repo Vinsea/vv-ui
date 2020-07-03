@@ -1,89 +1,9 @@
 @import "../common/var";
-
-.borderMixin() {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  transition-duration: @--transition-duration;
-  transition-timing-function: @--transition-timing-func;
-}
-
-.labelMixin() {
-  font-size: @--font-size-base;
-  bottom: @--height-form-item;
-}
-
-.vv-field-label {
-  color: @--color-text-normal;
-  position: absolute;
-  bottom: 13px;
-  line-height: 1;
-  pointer-events: none;
-  transition-property: bottom, font-size, color;
-  transition-duration: @--transition-duration;
-  transition-timing-function: @--transition-timing-func;
-}
-
-.vv-field {
-  position: relative;
-  padding-top: 20px;
-
-  &::before {
-    .borderMixin();
-    background-color: @--color-primary;
-    height: 2px;
-    z-index: 2;
-    opacity: 0;
-    transform: scaleX(.1);
-    transition-property: border, opacity, transform;
-    will-change: border, opacity, transform;
-  }
-
-  &::after {
-    .borderMixin();
-    height: 1px;
-    z-index: 1;
-    background-color: @--color-text-normal;
-    transition-property: border, opacity;
-    will-change: border, opacity;
-  }
-
-  &.has-value {
-    .vv-field-label {
-      .labelMixin()
-    }
-  }
-
-  &.is-focused {
-    &::before {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    .vv-field-label {
-      .labelMixin();
-      color: @--color-primary;
-    }
-  }
-}
+@import "../mixins/form";
 
 .vv-input {
-  color: @--color-text-normal;
-  width: 100%;
+  .inputInit();
+  line-height: @--height-form-item;
   height: @--height-form-item;
   padding: 0;
-  display: block;
-  flex: 1;
-  border: none;
-  background: none;
-  transition: .4s cubic-bezier(.25, .8, .25, 1);
-  transition-property: font-size, padding-top, color;
-  font-size: @--font-size-m;
-  line-height: @--height-form-item;
-
-  &:focus {
-    outline: none;
-  }
 }
