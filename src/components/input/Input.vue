@@ -64,10 +64,10 @@ export default {
     localValue(val) {
       this.setValue(val);
       this.$emit('input', val);
+    },
+    value(val) {
+      this.localValue = val;
     }
-    // value(val) {
-    //   this.localValue = val;
-    // }
   }
 };
 </script>
