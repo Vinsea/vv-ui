@@ -1,3 +1,18 @@
+# [0.4.0](https://github.com/Vinsea/vv-ui/compare/v0.3.0...v0.4.0) (2020-12-27)
+
+
+### Bug Fixes
+
+* **input:** 解决文本框组件没有双向绑定 ([ff0edfb](https://github.com/Vinsea/vv-ui/commit/ff0edfb3fd1f6cafbb78022c542abcd2546b3834))
+* **pagination:** 1. 下一页判断逻辑错误导致已经最后一页了还能继续点击；2. 只有1页的时候会多显示一个分页 ([f8e86b2](https://github.com/Vinsea/vv-ui/commit/f8e86b29b6f1a5a504f123ae07d3a3374d39a95b))
+
+
+### Features
+
+* :sparkles: 新增textarea组件、form-item组件 ([6c37f81](https://github.com/Vinsea/vv-ui/commit/6c37f815bc3d224131be1a8ca1194a90ef5728f8))
+
+
+
 # [0.3.0](https://github.com/Vinsea/vv-ui/compare/v0.2.0...v0.3.0) (2020-06-21)
 
 
